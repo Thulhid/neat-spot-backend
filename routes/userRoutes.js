@@ -12,6 +12,7 @@ const {
   updateUser,
   deleteUser,
   getMe,
+  createUser,
 } = require("../controllers/userController");
 
 const router = express.Router();
@@ -25,7 +26,7 @@ router.get("/me", getMe, getUser);
 
 router.use(restrictTo("admin"));
 
-router.get("/", getAllUsers);
+router.route("/").get(getAllUsers).post(createUser);
 router.route("/:id").get(getUser).put(updateUser).delete(deleteUser);
 
 module.exports = router;
