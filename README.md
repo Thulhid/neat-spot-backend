@@ -163,7 +163,7 @@ npm run dev
 ## 🔐 Demo Admin Credentials (For Testing Only)
 
 - **Username**: admin
-- **Password**: admin1234
+- **Password**: 11111111
   
 ## ✅ Completed As Part of Internship Task
 
