@@ -11,7 +11,7 @@ const app = express();
 // Define the list of allowed origins for CORS
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://neat-spot.vercel.app",
+  "https://neat-spot-booking.vercel.app",
 ];
 
 // Enable CORS with custom settings
