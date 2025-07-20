@@ -11,25 +11,22 @@ const app = express();
 // Define the list of allowed origins for CORS
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://neat-spot-booking.vercel.app",
+  "https://neat-spot-bookings.vercel.app",
 ];
 
 // Enable CORS with custom settings
-const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
-
-app.options("*", cors(corsOptions));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 // Parse incoming JSON data with a size limit
 app.use(express.json({ limit: "10kb" }));
