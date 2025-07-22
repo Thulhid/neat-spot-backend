@@ -66,6 +66,12 @@ exports.signup = catchAsync(async (req, res, next) => {
   const { full_name, username, password, password_confirm, mobile_number } =
     req.body;
 
+  const existingCustomer = await User.findOne({ username });
+
+  if (existingCustomer) {
+    return next(new AppError("Username already in use", 400));
+  }
+
   const newCustomer = await User.create({
     full_name,
     username,

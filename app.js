@@ -5,25 +5,14 @@ const cookieParser = require("cookie-parser");
 const userRouter = require("./routes/userRoutes");
 const serviceRouter = require("./routes/serviceRoutes");
 const bookingRouter = require("./routes/bookingRoutes");
+const globalErrorHandler = require("./controllers/errorController");
 
 const app = express();
 
 // Define the list of allowed origins for CORS
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://neat-spot.netlify.app",
-];
-
-// Enable CORS with custom settings
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: ["http://localhost:5173", "https://neat-spot.netlify.app"],
     credentials: true,
   })
 );
@@ -38,5 +27,7 @@ app.use(cookieParser());
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/services", serviceRouter);
 app.use("/api/v1/bookings", bookingRouter);
+
+app.use(globalErrorHandler);
 
 module.exports = app;
