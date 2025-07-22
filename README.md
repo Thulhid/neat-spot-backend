@@ -2,6 +2,10 @@
 
 The project is a **cleaning service management system** that handles users, bookings, and services with **role-based access control** using JWT authentication.
 
+## 🔗 Live Demo Links
+- 🌐 Frontend (Netlify):  https://neat-spot.netlify.app
+- 🔗 Backend API (Vercel):  https://neat-spot-api.vercel.app
+
 ## 🔐 Features
 
 * **JWT-based authentication** (login, signup, logout)
@@ -163,7 +167,7 @@ npm run dev
 ## 🔐 Demo Admin Credentials (For Testing Only)
 
 - **Username**: admin
-- **Password**: admin1234
+- **Password**: 11111111
   
 ## ✅ Completed As Part of Internship Task
 
